@@ -1,0 +1,128 @@
+/* === ProductCard.css === */
+.ProductCard {
+  direction: rtl;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 320px;
+  background: #fff;
+  border: 1px solid #e9eef3;
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.ProductCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.10);
+}
+
+/* תמונה */
+.ProductCard img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;          /* לא לחתוך לוגואים/מוצרים */
+  background: linear-gradient(180deg,#fafbfd,#f3f7fb);
+  border-radius: 12px;
+  border: 1px solid #eef3f7;
+}
+
+/* כותרת */
+.ProductCard h3 {
+  margin: 2px 0 4px;
+  font-size: 1.05rem;
+  line-height: 1.35;
+  font-weight: 700;
+  color: #1d2433;
+}
+
+/* תיאור (ה־p הראשון) – טרנקט ל־2 שורות */
+.ProductCard p:nth-of-type(1) {
+  margin: 0;
+  color: #556070;
+  font-size: .92rem;
+  line-height: 1.35;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;        /* 2 שורות מקס' */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* מחיר (p שני) */
+.ProductCard p:nth-of-type(2) {
+  margin: 4px 0 0;
+  font-weight: 800;
+  font-size: 1.05rem;
+  color: #0b7bd6;
+}
+
+/* דירוג (p שלישי) – מציג כוכבים טקסטואליים אם אין אייקונים */
+.ProductCard p:nth-of-type(3) {
+  margin: 0;
+  color: #f59e0b;
+  font-variant-numeric: tabular-nums;
+}
+
+/* מלאי (p רביעי) – צבע ירוק/אדום לפי ערך עם מחלקת מצב אופציונלית */
+.ProductCard p:nth-of-type(4) {
+  margin: 0;
+  color: #0f8a47;               /* זמין */
+}
+.ProductCard p.is-out { color: #d7263d; }
+
+/* קטגוריה (p חמישי) – תגית */
+.ProductCard p:nth-of-type(5) {
+  margin: 6px 0 0;
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: .78rem;
+  color: #2b3a4a;
+  background: #eef4ff;
+  border: 1px solid #dbe7ff;
+}
+
+/* פוטרים/מרווח תחתון (למקרה שתוסיף כפתורים) */
+.ProductCard .actions {
+  margin-top: 6px;
+  display: flex;
+  gap: 8px;
+}
+.ProductCard .btn {
+  cursor: pointer;
+  border: 1px solid #d7e2ee;
+  background: #f7fbff;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: .9rem;
+}
+.ProductCard .btn:hover { background: #eaf4ff; }
+
+/* רספונסיבי קטן */
+@media (max-width: 420px) {
+  .ProductCard { max-width: 100%; padding: 12px; }
+  .ProductCard h3 { font-size: 1rem; }
+}
+
+/* תמיכה ב־Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .ProductCard {
+    background: #0f141b;
+    border-color: #1f2a37;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  }
+  .ProductCard h3 { color: #e6edf5; }
+  .ProductCard p:nth-of-type(1) { color: #b2bdcc; }
+  .ProductCard p:nth-of-type(2) { color: #69b7ff; }
+  .ProductCard img { border-color: #263242; background: linear-gradient(180deg,#0e131a,#0b1016); }
+  .ProductCard p:nth-of-type(5) {
+    color: #cbd6e2;
+    background: #162232;
+    border-color: #233449;
+  }
+  .ProductCard .btn { background: #111925; border-color: #203047; color: #d5dfeb; }
+  .ProductCard .btn:hover { background: #142034; }
+}

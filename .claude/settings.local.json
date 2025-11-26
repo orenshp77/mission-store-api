@@ -1,0 +1,12 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run dev:*)",
+      "Bash(npm start)",
+      "Bash(yarn dev)",
+      "Bash(yarn start)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
